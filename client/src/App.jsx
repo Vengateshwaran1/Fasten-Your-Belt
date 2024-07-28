@@ -1,9 +1,14 @@
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Booking from "./Booking.jsx";
 
 function App() {
   return (
-    <span className='text-blue-700 font-extrabold text-3xl'>hello world</span>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/booking" element={<Booking />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

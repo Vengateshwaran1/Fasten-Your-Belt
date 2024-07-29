@@ -23,7 +23,7 @@ const Booking = () => {
               <input
                 type="text"
                 placeholder="From"
-                className="bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-left text-white placeholder-white p-2 focus:outline-none w-full sm:w-auto"
+                className="bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-left text-white placeholder-white p-2 outline-none w-full sm:w-auto focus:border focus:border-primary"
                 value={from}
                 onChange={(e) => setFrom(e.target.value)}
               />
@@ -36,15 +36,15 @@ const Booking = () => {
               <input
                 type="text"
                 placeholder="To"
-                className="bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-left text-white placeholder-white p-2 focus:outline-none w-full sm:w-auto"
+                className="bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-left text-white placeholder-white p-2 outline-none w-full sm:w-auto focus:border focus:border-primary"
                 value={to}
                 onChange={(e) => setTo(e.target.value)}
               />
           </div>
           <div className="flex justify-center">
-            <button className="bg-primary text-white hover:bg-gray-800 hover:text-primary rounded-xl p-2 font-medium text-xl w-full sm:w-auto">
-              Search
-            </button>
+              <button className="bg-primary text-white hover:bg-gray-800 hover:text-primary rounded-xl p-2 font-medium text-xl w-full sm:w-auto">
+                Search
+              </button>
           </div>
         </div>
       </div>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
 const Login = ({ setLoginUser }) => {
@@ -19,21 +18,21 @@ const Login = ({ setLoginUser }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:5000/api/auth/login', user)
-            .then(res => {
-                alert(res.data.message);
-                setLoginUser(res.data.user); 
-                history.push('/');
-            })
-            .catch(err => {
-                console.error(err);
-                alert('Login failed');
+        // Replace this with your own login logic
+        if (user.email === 'test@example.com' && user.password === 'password') {
+            setLoginUser({
+                _id: '123456789',
+                name: 'John Doe',
+                email: 'test@example.com'
             });
+            history.push('/');
+        } else {
+            alert('Login failed');
+        }
     };
 
     return (
         <div className="relative flex items-center justify-center min-h-screen bg-gray-100">
-            {/* Background Image */}
             <img
                 src="https://img.freepik.com/premium-photo/generative-ai-proposal-carpooling-ridesharing-cities_28914-8402.jpg"
                 alt="Background"

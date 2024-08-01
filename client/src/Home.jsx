@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import Layout from './Components/Layout';
+import { ReactTyped } from "react-typed";
+
 
 const Home = () => {
   const navigate = useNavigate();
@@ -11,8 +13,17 @@ const Home = () => {
   return (
     <Layout>
       <div className='max-w-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center'>
-        <p className='text-gray-300 font-bold p-2'>HAVE A GREAT JOURNEY.</p>
-        <h1 className='md:text-7xl sm:text-6xl text-4xl font-bold md:py-6 text-gray-300'>Have a SAFE Journey.</h1>
+      <h1 className="md:text-5xl sm:text-6xl text-4xl font-bold md:py-6 text-gray-300">
+          Have a{' '}
+          <ReactTyped
+            strings={['SAFE', 'GREAT']}
+            typeSpeed={200}
+            backSpeed={200}
+            loop
+            className="inline-block"
+          />
+      {''}Journey.
+    </h1>
         <p className='md:text-2xl text-xl font-bold text-primary'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         <div className="flex justify-center items-center">
           <span className="relative inline-flex">

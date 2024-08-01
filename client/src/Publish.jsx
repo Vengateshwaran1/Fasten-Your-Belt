@@ -22,7 +22,7 @@ const Publish = () => {
     <Layout>
       <section>
       <h1 className="text-2xl text-left p-4 font-bold"> <span className="text-primary"> Publish </span> <span className='text-white'>a</span> <span className="text-primary"> Ride </span> <span className='text-white'> in Just </span><span className="text-primary">Minutes</span></h1>
-      <div className="container pt-6 max-w-screen-xl pb-16 mx-auto md:justify-start flex flex-col md:flex-row items-start p-4">
+      <div className="container pt-6 max-w-screen-xl pb-16 mx-auto md:justify-start flex flex-col md:flex-row items-start py-8">
         <div className="md:w-1/2 w-full justify-start mb-10 lg:mb-0">
           <div className="flex flex-col flex-wrap gap-5 px-0 md:px-10 sm:py-0 text-left">
             {steps.map(step => 
@@ -37,7 +37,10 @@ const Publish = () => {
           </div>
         </div>
         <div className="md:w-1/2 w-full">
-            
+            <div className='w-full bg-white backdrop-blur-[2px] bg-opacity-30'>
+              <h1>hello</h1>
+
+            </div>
         
         </div>
       </div>

@@ -38,7 +38,7 @@ const Publish = () => {
         </div>
         <div className="md:w-1/2 w-full">
             <div className='w-full bg-white backdrop-blur-[2px] bg-opacity-30'>
-              <h1>hello</h1>
+              <h1>Publish a ride</h1>
 
             </div>
         

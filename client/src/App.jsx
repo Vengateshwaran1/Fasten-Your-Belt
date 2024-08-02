@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Booking from "./Booking.jsx";
 import Home from "./Home.jsx";
 import Publish from "./Publish.jsx";
-import Login from "./Login.jsx"
-import Signup from "./Signup.jsx"
+import Login from "./Login.jsx";
+import Signup from "./Signup.jsx";
 function App() {
   return (
     <BrowserRouter>

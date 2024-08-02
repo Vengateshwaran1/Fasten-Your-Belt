@@ -5,7 +5,7 @@ const Signup = () => {
   
 
   return (
-    <div className="login-container h-screen w-screen flex justify-center items-center">
+    <div className="signup-container h-screen w-screen flex justify-center items-center">
           <div className="absolute w-full h-full">
             <img
               src={backgroundImg}
@@ -93,4 +93,4 @@ const Signup = () => {
   );
 };
 
-export default Login;
+export default Signup;

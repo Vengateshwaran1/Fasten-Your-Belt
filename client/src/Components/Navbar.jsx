@@ -53,7 +53,7 @@ const Navbar = () => {
           Publish ride
         </li>
         <li className='p-4 hover:text-primary hover:underline cursor-pointer'>About</li>
-        <li className='p-4 hover:underline cursor-pointer bg-primary rounded-xl'>Login/Signup</li>
+        <li className='p-4 hover:text-primary hover:underline cursor-pointer  '>Login/Signup</li>
       </ul>
 
       <div onClick={handleNav} className='block md:hidden'>

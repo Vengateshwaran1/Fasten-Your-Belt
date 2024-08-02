@@ -1,55 +1,77 @@
-
+import backgroundImg from '../src/assets/bg.jpg';
+import apple from '../src/assets/applel.svg';
+import google from '../src/assets/googlel.svg';
 const Login = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add your login logic here
-  };
+  
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen bg-gray-100">
-      <img
-        src="https://img.freepik.com/premium-photo/generative-ai-proposal-carpooling-ridesharing-cities_28914-8402.jpg"
-        alt="Background"
-        className="absolute inset-0 object-cover w-full h-full"
-      />
-      <div className="relative bg-white bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-sm">
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-900">Login</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter your email"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              required
+    <div className="login-container h-screen w-screen flex justify-center items-center">
+          <div className="absolute w-full h-full">
+            <img
+              src={backgroundImg}
+              className="w-full h-full object-cover object-center"
             />
           </div>
-          <div className="mb-6">
-            <label htmlFor="password" className="block text-gray-700">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Enter your password"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full py-2 px-4 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-          >
+          <div className="relative z-10 bg-white backdrop-blur-[2px] bg-opacity-20 p-8 rounded-lg w-full max-w-md mx-4 sm:mx-8 md:mx-12 lg:mx-0">
+            <div className="text-3xl font-light text-black-400 text-left flex justify-center w-full mb-4">
+              <span>
+                <span className="text-primary font-bold">Fasten Your Belt</span>
+              </span>
+            </div>
+
+            <div className="flex flex-col items-center gap-y-4 mt-8 mb-4">
+          <input
+            type="text"
+            placeholder="Email"
+            className="p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
+          />
+          <input
+            type="text"
+            placeholder="Password"
+            className="p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
+          />
+        </div>
+        <div className='flex justify-end px-6'>
+          <button className='text-primary hover:underline'>Forgot Password?</button>
+        </div>
+        <div className="flex justify-start gap-2 py-2">
+          <input type="checkbox" />{' '}
+          <span className="text-gray-300 text-md">Remember me</span>
+        </div>
+        <div className="pt-3 flex justify-center">
+          <button className="bg-primary text-white hover:bg-gray-800 hover:text-primary rounded-xl font-medium w-[60%]">
             Login
           </button>
-        </form>
+        </div>
+        
+        <div className="py-3 flex gap-2 items-center justify-center">
+          <hr className='border-1 border-gray-400 w-[33%]' />
+          <span className='font-semibold'>
+            OR
+          </span>
+          <hr className='border-1 border-gray-400 w-[33%]' />
+        </div>
+        <div className='flex gap-4 justify-center'>
+          <button
+            className=" p-3 gap-x-2  flex text-black border rounded-full hover:border-primary">
+            <img src={google} alt="" className=" w-[25px]" />
+          </button>
+          <button
+            className=" p-3 gap-x-2  flex text-black hover:drop-shadow">
+            <img src={apple} alt="" className="w-[25px]" />
+          </button>
+        </div>
+        <div>
+          <span className='flex py-4 justify-center'>
+            Dont have an account? <button className='text-primary px-2 hover:underline'
+              onClick={
+                (e) => { e.preventDefault(); navigate("/signup") }}>
+              Sign Up
+            </button>
+          </span>
+        </div>
+          </div>
       </div>
-    </div>
   );
 };
 

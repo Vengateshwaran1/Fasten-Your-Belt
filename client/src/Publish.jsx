@@ -1,4 +1,5 @@
 import Layout from './Components/Layout'
+import DragAndDrop from './Components/DragAndDrop'
 
 const Publish = () => {
     const steps = [
@@ -21,10 +22,10 @@ const Publish = () => {
   return (
     <Layout>
       <section>
-      <h1 className="text-2xl text-left p-4 font-bold"> <span className="text-primary"> Publish </span> <span className='text-white'>a</span> <span className="text-primary"> Ride </span> <span className='text-white'> in Just </span><span className="text-primary">Minutes</span></h1>
       <div className="container pt-6 max-w-screen-xl pb-16 mx-auto md:justify-start flex flex-col md:flex-row items-start py-8">
         <div className="md:w-1/2 w-full justify-start mb-10 lg:mb-0">
           <div className="flex flex-col flex-wrap gap-5 px-0 md:px-10 sm:py-0 text-left">
+          <h1 className="text-2xl text-left p-4 font-bold"> <span className="text-primary"> Publish </span> <span className='text-white'>a</span> <span className="text-primary"> Ride </span> <span className='text-white'> in Just </span><span className="text-primary">Minutes</span></h1>
             {steps.map(step => 
               <div key={step.step} className="flex flex-col md:items-start">
                 <div className="w-8 h-8 inline-flex items-center justify-left text-primary mb-2">{step.step}</div>
@@ -36,10 +37,12 @@ const Publish = () => {
             )}
           </div>
         </div>
-        <div className="md:w-1/2 w-full">
-            <div className='w-full bg-white backdrop-blur-[2px] bg-opacity-30'>
-              <h1>Publish a ride</h1>
-
+        <div className="pub md:w-1/2 w-full">
+            <div className='w-full bg-white backdrop-blur-[2px] bg-opacity-30 rounded-lg p-4'>
+              <h1 className='text-gray-300 font-bold text-2xl'>Publish a ride</h1>
+              <div className='bg-white'>
+                <DragAndDrop />
+              </div>
             </div>
         
         </div>

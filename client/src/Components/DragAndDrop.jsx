@@ -43,15 +43,16 @@ function DragAndDrop() {
         type="file"
         className="file-input sr-only"
         onChange={handleChange}
+        required
       />
       <label
         htmlFor="file-input"
-        className="file-label block text-gray-500 font-medium mb-2"
+        className="file-label block text-gray-500 font-medium mb-2 cursor-pointer"
       >
-        {file ? file.name : 'Drag and drop a file here or click to upload photo'}
+        {file ? file.name : 'Drag and drop/click to upload photo of car'}
       </label>
       {file && (
-        <div className="file-preview mt-2">
+        <div className="file-preview mt-2 ">
           <span className="file-name">{file.name}</span> -{' '}
           <span className="file-size">{file.size} bytes</span>
         </div>

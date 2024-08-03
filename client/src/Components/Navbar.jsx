@@ -28,6 +28,10 @@ const Navbar = () => {
     navigate('/login');
   }
 
+  const handleAboutClick=() => {
+    navigate('/about');
+  }
+
   return (
     <div className="flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white">
       <h1 className='w-full text-4xl font-bold text-primary'>Fasten Your Belt</h1>
@@ -56,16 +60,22 @@ const Navbar = () => {
         >
           Publish ride
         </li>
-        <li className='p-4 hover:text-primary hover:underline cursor-pointer'>About</li>
         <li
           className={`p-4 hover:text-primary hover:underline cursor-pointer text-center ${
-            location.pathname === '/login' ? 'text-primary underline' : ''
+            location.pathname === '/about' ? 'text-primary underline' : ''
+          }`}
+          onClick={handleAboutClick}
+        >
+          About
+        </li>
+        <li
+          className={`p-4 hover:text-primary hover:underline cursor-pointer text-center ${
+            location.pathname === '/login' || location.pathname==='/signup' ? 'text-primary underline' : ''
           }`}
           onClick={handleLoginClick}
         >
           Login/Signup
-        </li>
-        
+        </li>    
       </ul>
 
       <div onClick={handleNav} className='block md:hidden'>

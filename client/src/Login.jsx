@@ -2,10 +2,23 @@ import apple from '../src/assets/applel.svg';
 import google from '../src/assets/googlel.svg';
 import { useNavigate } from 'react-router-dom';
 import Layout from './Components/Layout';
+import { useState } from 'react';
+
 
 
 const Login = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const handleSubmit = () => {
+    if (!email || !password) {
+      setErrorMessage("Fill all the required field");
+      setShowError(true);
+      return;
+    }
+    };
 
 
   return (
@@ -22,12 +35,16 @@ const Login = () => {
             <input
               type="text"
               placeholder="Email"
-              className="p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
+              className="text-white p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
+              required
+              onChange={(e) => { setErrorMessage(""); setShowError(false); setEmail(e.target.value) }}
             />
             <input
               type="text"
               placeholder="Password"
-              className="p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
+              className="text-white p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
+              required
+              onChange={(e) => { setErrorMessage(""); setShowError(false); setPassword(e.target.value) }}
             />
           </div>
           <div className='flex justify-end px-6'>
@@ -37,8 +54,17 @@ const Login = () => {
             <input type="checkbox" />{' '}
             <span className="text-gray-300 text-md">Remember me</span>
           </div>
+          {showError &&
+            <span className='font-bold text-red-500 justify-center flex'>
+            {errorMessage}
+            </span>
+          }
           <div className="pt-3 flex justify-center">
-            <button className="bg-primary text-white hover:bg-gray-800 hover:text-primary rounded-xl font-medium w-[60%]">
+            <button className="bg-primary text-white hover:bg-gray-800 hover:text-primary rounded-xl font-medium w-[60%]"
+              onClick={(e) => {
+              e.preventDefault();
+              handleSubmit();
+              }}>
               Login
             </button>
           </div>
@@ -52,11 +78,11 @@ const Login = () => {
           </div>
           <div className='flex gap-4 justify-center'>
             <button
-              className=" p-3 gap-x-2  flex text-black border rounded-full hover:border-primary">
+              className=" p-3 gap-x-2  flex text-black border-2 rounded-full hover:border-primary">
               <img src={google} alt="" className=" w-[25px]" />
             </button>
             <button
-              className=" p-3 gap-x-2  flex text-black border rounded-full hover:border-primary">
+              className=" p-3 gap-x-2  flex text-black border-2 rounded-full hover:border-primary">
               <img src={apple} alt="" className="w-[25px]" />
             </button>
           </div>

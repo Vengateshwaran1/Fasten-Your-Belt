@@ -24,7 +24,7 @@ const Home = () => {
           />
       {''}Journey.
     </h1>
-        <p className='md:text-2xl text-xl font-bold text-primary'>Your perfect ride is just a Tap away</p>
+        <p className='md:text-2xl text-xl font-bold text-primary'>Your perfect <span className='text-white'>Ride</span> is just a <span className='text-white'>Tap</span> away</p>
         <div className="flex justify-center items-center">
           <span className="relative inline-flex">
             <button className='hover:border w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-white bg-white backdrop-blur-[2px] bg-opacity-30 hover:border-primary'

@@ -1,18 +1,26 @@
 import { useState } from "react";
 import Layout from "./Components/Layout";
 import exchange from "../src/assets/exchange.png";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+
 
 const Booking = () => {
   const [from, setFrom] = useState("");
-  const [to, setTo] = useState("");
-  const [startDate, setStartDate] = useState(null);
+  const [dob,setDOB] = useState(null);
 
+  const [to, setTo] = useState("");
+  const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const handleExchangeClick = () => {
     const temp = from;
     setFrom(to);
     setTo(temp);
+  };
+  const handleSubmit = () => {
+    if (!to || !from || !dob) {
+      setErrorMessage("Fill all the required fields");
+      setShowError(true);
+      return;
+    }
   };
 
   return (
@@ -43,19 +51,32 @@ const Booking = () => {
               value={to}
               onChange={(e) => setTo(e.target.value)}
             />
-            <DatePicker
-              showIcon
-              placeholderText="Select the date"
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-              className="bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-white placeholder-white p-2 outline-none sm:w-2 focus:border focus:border-primary"
-            />
+            
           </div>
-          <div className="flex justify-center">
-            <button className="bg-primary text-white hover:bg-gray-800 hover:text-primary rounded-xl p-2 font-medium text-xl w-full sm:w-auto">
-              Search
-            </button>
-          </div>
+            <div className='flex justify-center gap-2'>
+              <input type="text" className='text-white p-2 w-[25%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary '
+              placeholder='Date Of Ride'
+              required
+              value={dob===null?"":dob}/>
+              <input type="date" name="" id="" className='p-2 w-[9%] sm:w-[5%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary  text-transparent' onChange={(e)=>setDOB(e.target.value)}/>
+            </div>
+            {showError &&
+            <span className='font-bold text-red-500 justify-center flex'>
+              {errorMessage}
+            </span>
+            }
+            <div className="flex justify-center mt-4">
+              <button className="bg-primary text-white hover:bg-gray-800 hover:text-primary rounded-xl font-medium w-[40%] h-10"
+                onClick={(e) => {
+                e.preventDefault();
+                handleSubmit();
+                }}>
+                Search
+              </button>
+
+            </div>
+            
+          
         </div>
       </div>
     </Layout>

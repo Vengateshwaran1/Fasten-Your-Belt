@@ -85,7 +85,7 @@ const Navbar = () => {
         <li className='p-4 border-b-2 border-black' onClick={handleHomeClick}>Home</li>
         <li className='p-4 border-b-2 border-black' onClick={handleBookingClick}>Booking</li>
         <li className='p-4 border-b-2 border-black' onClick={handlePublishClick}>Publish ride</li>
-        <li className='p-4 border-b-2 border-black'>About</li>
+        <li className='p-4 border-b-2 border-black' onClick={handleAboutClick}>About</li>
         <li className='p-4 border-b-2 border-black' onClick={handleLoginClick}>Login/Signup</li>
       </ul>
     </div>

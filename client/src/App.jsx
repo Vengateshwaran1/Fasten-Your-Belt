@@ -5,6 +5,7 @@ import Publish from "./Publish.jsx";
 import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
 import About from "./About.jsx";
+import Profile from "./Profile.jsx";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route path="/login" element={<Login/>} />
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/about" element={<About/>}/>
+        <Route path="/profile" element={<Profile/>}/>
+
       </Routes>
     </BrowserRouter>
   );

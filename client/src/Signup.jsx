@@ -58,14 +58,14 @@ const Signup = () => {
               required
               onChange={(e) => { setErrorMessage(""); setShowError(false); setName(e.target.value) }}
             />
-            <div className='flex gap-0 w-full'>
-              <input type="text" className='text-white p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary'
+            <div className='flex w-full justify-center gap-2'>
+              <input type="text" className='p-2 w-[40%] md:w-[28%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary'
                 placeholder='Date Of Birth'
                 required
                 value={dob === null ? "" : dob}
                 onChange={(e) => setDOB(e.target.value)}
               />
-              <input type="date" name="" id="" className='p-2 w-[9%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary  text-transparent' onChange={(e) => setDOB(e.target.value)} />
+              <input type="date" name="" id="" className='p-2 md:w-9 w-9 outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary text-transparent' onChange={(e) => setDOB(e.target.value)} />
             </div>
             <input
               type="email"

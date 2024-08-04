@@ -4,6 +4,7 @@ const {customer}=require('./models/users.model.js');
 const authRoutes=require('./routes/authRoutes');
 const otpRoutes=require('./routes/otpRoutes.js');
 const loginRoute=require('./routes/loginroutes.js');
+const rideRoute=require('./routes/rideRoute.js');
 const cors=require('cors');
 
 const app=express()
@@ -23,6 +24,7 @@ app.use(cors({
 app.use('/api', authRoutes);
 app.use('/api', otpRoutes);
 app.use('/api',loginRoute);
+app.use('/api',rideRoute);
 
 
 mongoose.connect("mongodb+srv://vad:carPool101@carpool.qy9xda4.mongodb.net/cp?retryWrites=true&w=majority&appName=Carpool")

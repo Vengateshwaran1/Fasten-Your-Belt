@@ -24,9 +24,9 @@ const Publish = () => {
   return (
     <Layout>
       <section>
-      <div className="container p-4 pt-6 max-w-screen-xl pb-16 mx-auto md:justify-center flex flex-col items-center py-8">
-        <div className="w-full justify-start mb-10 lg:mb-0">
-          <div className="flex flex-col flex-wrap gap-5 px-0 md:px-10 sm:py-0 text-left">
+      <div className="container p-4 pt-2 max-w-screen-xl pb-16 mx-auto md:justify-center flex flex-col items-center py-8">
+        <div className="w-full justify-start mb-5 lg:mb-0">
+          <div className="flex flex-col flex-wrap gap-4 px-0 md:px-10 sm:py-0 text-left">
           <h1 className="text-2xl text-left p-4 font-bold"> <span className="text-primary"> Publish </span> <span className='text-white'>a</span> <span className="text-primary"> Ride </span> <span className='text-white'> in Just </span><span className="text-primary">Minutes</span></h1>
             {steps.map(step => 
               <div key={step.step} className="flex flex-col md:items-start">

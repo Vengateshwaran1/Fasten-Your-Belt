@@ -65,7 +65,7 @@ const Signup = () => {
                 value={dob === null ? "" : dob}
                 onChange={(e) => setDOB(e.target.value)}
               />
-              <input type="date" name="" id="" className='p-2 md:w-9 w-9 outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary text-transparent' onChange={(e) => setDOB(e.target.value)} />
+              <input type="date" name="" id="" className='p-2 md:w-9 w-10 outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary text-transparent' onChange={(e) => setDOB(e.target.value)} />
             </div>
             <input
               type="email"

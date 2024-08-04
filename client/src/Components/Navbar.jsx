@@ -54,7 +54,7 @@ const Navbar = () => {
         </li>
         <li
           className={`p-4 hover:text-primary hover:underline cursor-pointer text-center ${
-            location.pathname === '/publish' ? 'text-primary underline' : ''
+            location.pathname === '/publish' || location.pathname === '/publish_ride' ? 'text-primary underline' : ''
           }`}
           onClick={handlePublishClick}
         >

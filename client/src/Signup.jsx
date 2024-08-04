@@ -31,9 +31,9 @@ const Signup = () => {
 
   return (
     <Layout>
-    <div className="flex justify-center items-center h-full ">
+    <div className="flex justify-center items-center">
     <div className="relative z-10 bg-white backdrop-blur-[2px] bg-opacity-20 p-8 rounded-lg w-full max-w-md">
-      <div className="text-3xl font-light text-black-400 text-left flex justify-center w-full mb-4">
+      <div className="text-3xl font-light text-black-400 text-left flex justify-center w-full mb-3">
         <span>
           <button
             className="text-primary font-bold hover:underline"

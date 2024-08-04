@@ -31,4 +31,4 @@ mongodb://127.0.0.1:27017/YOUR_DATABASE_NAME
 ```
 and change the connection in server/index.js
 
-### Now you can use oru app and enjoy the ride.
+### Now you can use our app and enjoy the ride.

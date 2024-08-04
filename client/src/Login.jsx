@@ -8,15 +8,55 @@ const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [otp ,setOtp]=useState("");
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const handleSubmit = () => {
-    if (!email || !password) {
-      setErrorMessage("Fill all the required field");
-      setShowError(true);
-      return;
+  
+  
+  const handleSendOtp=async (event) =>{
+    event.preventDefault();
+    try{
+      const response =await fetch('api/send-otp',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({email}),
+      });
+      const data=await response.json();
+      if(data.success){
+        console.log(data);
+      }else{
+        setErrorMessage(data.message);
+        setShowError(true);
+      }
     }
+    catch(error){
+      setErrorMessage(error);
+      setShowError(true);
+    }
+    
   };
+
+  const handleLogin =async () => {
+    try {
+      const response = await fetch('api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password ,otp }),
+    });
+    const data = await response.json();
+    if (data.success) {
+        navigate("/")
+      } else {
+        setErrorMessage(data.message);
+        setShowError(true);
+      }
+  } catch (error) {
+      setErrorMessage('Error logging in');
+      setShowError(true);
+    }
+ };
+
+
 
   return (
     <Layout>
@@ -55,6 +95,14 @@ const Login = () => {
               required
               onChange={(e) => { setErrorMessage(""); setShowError(false); setPassword(e.target.value) }}
             />
+             <input
+            type="text"
+            placeholder="OTP"
+            name="otp"
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
+            className="p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
+            />
           </div>
           <div className='flex justify-end px-6'>
             <button className='text-primary hover:underline'>Forgot Password?</button>
@@ -72,10 +120,14 @@ const Login = () => {
             <button className="bg-primary text-white hover:bg-gray-800 hover:text-primary rounded-xl font-medium w-[60%]"
               onClick={(e) => {
                 e.preventDefault();
-                handleSubmit();
+                handleLogin();
               }}>
               Login
             </button>
+            <button className="bg-primary text-white hover:bg-gray-800 hover:text-primary rounded-xl font-medium w-[40%]"
+            onClick={handleSendOtp}>
+            Send OTP
+           </button>
           </div>
 
           <div className="py-3 flex gap-2 items-center justify-center">

@@ -31,13 +31,25 @@ const Signup = () => {
 
   return (
     <Layout>
-      <div className="flex justify-center items-center p-1">
-        <div className="relative z-10 bg-white backdrop-blur-[2px] bg-opacity-20 p-8 rounded-lg w-full max-w-md mx-4 sm:mx-8 md:mx-12 lg:mx-0">
-          <div className="text-3xl font-light text-black-400 text-left flex justify-center w-full mb-4">
-            <span>
-              <span className="text-primary font-bold">Fasten Your Belt</span>
-            </span>
-          </div>
+    <div className="flex justify-center items-center">
+    <div className="relative z-10 bg-white backdrop-blur-[2px] bg-opacity-20 p-8 rounded-lg w-full max-w-md">
+      <div className="text-3xl font-light text-black-400 text-left flex justify-center w-full mb-3">
+        <span>
+          <button
+            className="text-primary font-bold hover:underline"
+            onClick={(e) => { e.preventDefault(); navigate("/login"); }}
+          >
+            Login
+          </button>
+          /
+          <button
+            className="text-primary font-bold hover:underline"
+            onClick={(e) => { e.preventDefault(); navigate("/signup"); }}
+          >
+            Signup
+          </button>
+        </span>
+      </div>
           <div className="flex flex-col items-center gap-y-4 mt-8 mb-4">
             <input
               type="text"
@@ -46,14 +58,14 @@ const Signup = () => {
               required
               onChange={(e) => { setErrorMessage(""); setShowError(false); setName(e.target.value) }}
             />
-            <div className='flex gap-0 w-full'>
-              <input type="text" className='text-white p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary'
+            <div className='flex w-full justify-center gap-2'>
+              <input type="text" className='p-2 w-[40%] md:w-[28%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary'
                 placeholder='Date Of Birth'
                 required
                 value={dob === null ? "" : dob}
                 onChange={(e) => setDOB(e.target.value)}
               />
-              <input type="date" name="" id="" className='p-2 w-[9%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary  text-transparent' onChange={(e) => setDOB(e.target.value)} />
+              <input type="date" name="" id="" className='p-2 md:w-9 w-10 outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary text-transparent' onChange={(e) => setDOB(e.target.value)} />
             </div>
             <input
               type="email"

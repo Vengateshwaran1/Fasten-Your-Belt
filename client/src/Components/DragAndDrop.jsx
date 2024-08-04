@@ -49,14 +49,22 @@ function DragAndDrop() {
         htmlFor="file-input"
         className="file-label block text-gray-500 font-medium mb-2 cursor-pointer"
       >
-        {file ? file.name : 'Drag and drop/click to upload photo of car'}
+        {file ? (
+          <img
+            src={URL.createObjectURL(file)}
+            alt={file.name}
+            className="max-w-full max-h-32 object-contain"
+          />
+        ) : (
+          'Drag and drop/click to upload photo of car'
+        )}
       </label>
-      {file && (
+      {/* {file && (
         <div className="file-preview mt-2 ">
           <span className="file-name">{file.name}</span> -{' '}
           <span className="file-size">{file.size} bytes</span>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

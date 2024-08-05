@@ -8,11 +8,11 @@ const Publish_ride = () => {
   const [to, setTo] = useState("");
   const [carNumber, setCarNumber] = useState(null);
   const [carModel, setCarModel] = useState(null);
-  const [phoneNumber, setPhoneNumber] = useState(null);
+  const [PhoneNumber, setPhoneNumber] = useState(null);
   const [name, setName] = useState("");
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [dob, setDOB] = useState(null);
+  const [dor, setDOB] = useState(null);
 
   const handleExchangeClick = () => {
     const temp = from;
@@ -20,9 +20,21 @@ const Publish_ride = () => {
     setTo(temp);
   };
 
-  const handleSubmit = () => {
-    if (!name || !phoneNumber || !carNumber || !carModel) {
+  const handleSubmit = async() => {
+    if (!name || !PhoneNumber || !carNumber || !carModel) {
       setErrorMessage("Fill all the required field");
+      setShowError(true);
+      return;
+    }
+    try{
+      const data=await fetch('api/publishRide',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({name,PhoneNumber,carNumber,carModel,dor,from,to})
+      })
+    }
+    catch(error){
+      setErrorMessage(error);
       setShowError(true);
       return;
     }
@@ -68,7 +80,7 @@ const Publish_ride = () => {
               className="p-2 w-[40%] md:w-[25%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
               placeholder="Date Of Ride"
               required
-              value={dob === null ? "" : dob}
+              value={dor === null ? "" : dor}
             />
             <input
               type="date"
@@ -82,6 +94,7 @@ const Publish_ride = () => {
             <input
               type="text"
               placeholder="Name"
+              value={name}
               className="bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-left text-white placeholder-white p-2 outline-none w-full focus:border focus:border-primary"
               onChange={(e) => {
                 setErrorMessage("");
@@ -93,6 +106,7 @@ const Publish_ride = () => {
             <input
               type="tel"
               placeholder="Phone Number"
+              value={PhoneNumber}
               className="bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-left text-white placeholder-white p-2 outline-none w-full focus:border focus:border-primary"
               onChange={(e) => {
                 setErrorMessage("");
@@ -104,6 +118,7 @@ const Publish_ride = () => {
             <input
               type="text"
               placeholder="Car Number"
+              value={carNumber}
               className="bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-left text-white placeholder-white p-2 outline-none w-full focus:border focus:border-primary"
               onChange={(e) => {
                 setErrorMessage("");
@@ -115,6 +130,7 @@ const Publish_ride = () => {
             <input
               type="text"
               placeholder="Car Model"
+              value={carModel}
               className="bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-left text-white placeholder-white p-2 outline-none w-full focus:border focus:border-primary"
               onChange={(e) => {
                 setErrorMessage("");

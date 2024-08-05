@@ -7,16 +7,16 @@ import Layout from './Components/Layout';
 const Signup = () => {
   const [dob, setDOB] = useState(null);
   const navigate = useNavigate();
-  const [phoneNumber, setPhoneNumber] = useState(null);
-  const [name, setName] = useState("");
+  const [phoneNo, setPhoneNo] = useState(null);
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = () => {
-    if (!name || !email || !password || !confirmPassword || !phoneNumber || !dob) {
+  const handleSubmit = async() => {
+    if (!username || !email || !password || !confirmPassword || !phoneNo || !dob) {
       setErrorMessage("Fill all the required fields");
       setShowError(true);
       return;
@@ -27,7 +27,27 @@ const Signup = () => {
       setShowError(true);
       return;
     }
-  };
+    try {
+      const response = await fetch('api/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username,phoneNo,dob,password,email }),
+    });
+    const data = await response.json();
+    if (data.success) {
+      //a message box that says logged in good
+        navigate("/")
+      } else {
+        setErrorMessage(data.message);
+        setShowError(true);
+        return;
+      }
+  } catch (error) {
+      setErrorMessage('Error logging in');
+      setShowError(true);
+      return;
+    }
+};
 
   return (
     <Layout>
@@ -56,7 +76,7 @@ const Signup = () => {
               placeholder="Name"
               className="text-white p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
               required
-              onChange={(e) => { setErrorMessage(""); setShowError(false); setName(e.target.value) }}
+              onChange={(e) => { setErrorMessage(""); setShowError(false); setUsername(e.target.value) }}
             />
             <div className='flex w-full justify-center gap-2'>
               <input type="text" className='p-2 w-[40%] md:w-[28%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary'
@@ -93,7 +113,7 @@ const Signup = () => {
               placeholder=" Phone number"
               className="text-white p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
               required
-              onChange={(e) => { setErrorMessage(""); setShowError(false); setPhoneNumber(e.target.value) }}
+              onChange={(e) => { setErrorMessage(""); setShowError(false); setPhoneNo(e.target.value) }}
             />
           </div>
           {showError &&

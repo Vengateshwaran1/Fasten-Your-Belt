@@ -23,30 +23,28 @@ const Publish = () => {
     ]
   return (
     <Layout>
-      <section>
-      <div className="container p-4 pt-2 max-w-screen-xl pb-16 mx-auto md:justify-center flex flex-col items-center py-8">
-        <div className="w-full justify-start mb-5 lg:mb-0">
-          <div className="flex flex-col flex-wrap gap-4 px-0 md:px-10 sm:py-0 text-left">
+      <div className="w-full flex justify-center items-center mb-5 lg:mb-0">
+        <div className="relative z-10 bg-white backdrop-blur-[2px] bg-opacity-20 p-8 rounded-lg w-full max-w-md">
           <h1 className="text-2xl text-left p-4 font-bold"> <span className="text-primary"> Publish </span> <span className='text-white'>a</span> <span className="text-primary"> Ride </span> <span className='text-white'> in Just </span><span className="text-primary">Minutes</span></h1>
             {steps.map(step => 
               <div key={step.step} className="flex flex-col md:items-start">
-                <div className="w-8 h-8 inline-flex items-center justify-left text-primary mb-2">{step.step}</div>
+                <div className="w-8 h-8 inline-flex items-center justify-left text-white mb-2 font-bold">{step.step}.</div>
                 <div className="flex-grow">
-                  <h2 className="text-lg title-font font-medium mb-3 text-gray-400">{step.title}</h2>
+                  <h2 className="text-lg mb-3 text-primary font-bold">{step.title}</h2>
                   <p className="leading-relaxed text-muted-foreground text-base text-white">{step.description}</p>
                 </div>
               </div>
             )}
-          </div>
-        </div>
+          
+        
         <div className="pt-3 flex justify-center">
-          <button className="bg-primary text-white hover:bg-gray-800 hover:text-primary rounded-xl font-medium w-[90%]"
+          <button className="p-2 bg-primary text-white hover:bg-gray-800 hover:text-primary rounded-xl font-medium w-[90%]"
           onClick={(e) => { e.preventDefault(); navigate("/publish_ride"); }}>
-            Click ME To Continue
+            Continue
           </button>
         </div>
       </div>
-    </section>
+      </div>
     </Layout>
   )
 }

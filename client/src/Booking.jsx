@@ -19,8 +19,7 @@ const Booking = () => {
     if (!to || !from || !dob) {
       setErrorMessage("Fill all the required fields");
       setShowError(true);
-      return;
-    }
+    } 
   };
 
   return (
@@ -36,7 +35,11 @@ const Booking = () => {
               placeholder="From"
               className="bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-left text-white placeholder-white p-2 outline-none w-full sm:w-auto focus:border focus:border-primary"
               value={from}
-              onChange={(e) => setFrom(e.target.value)}
+              onChange={(e) =>{
+                setFrom(e.target.value);
+                setErrorMessage("");
+                setShowError(false);
+              }}
             />
             <img
               src={exchange}
@@ -49,16 +52,20 @@ const Booking = () => {
               placeholder="To"
               className="bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-left text-white placeholder-white p-2 outline-none w-full sm:w-auto focus:border focus:border-primary"
               value={to}
-              onChange={(e) => setTo(e.target.value)}
+              onChange={(e) =>{
+                setTo(e.target.value);
+                setErrorMessage("");
+                setShowError(false);
+              }}
             />
             
           </div>
-            <div className='flex justify-center gap-2'>
-              <input type="text" className='text-white p-2 w-[25%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary '
+            <div className='flex justify-center'>
+              <input type="text" className='text-white p-2 w-[35%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-l-2xl placeholder-white focus:border focus:border-primary '
               placeholder='Date Of Ride'
               required
               value={dob===null?"":dob}/>
-              <input type="date" name="" id="" className='p-2 w-[9%] sm:w-[5%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary  text-transparent' onChange={(e)=>setDOB(e.target.value)}/>
+              <input type="date" name="" id="" className='p-2 w-[10%] sm:w-[5.5%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-r-2xl placeholder-white focus:border focus:border-primary  text-transparent' onChange={(e)=>setDOB(e.target.value)}/>
             </div>
             {showError &&
             <span className='font-bold text-red-500 justify-center flex'>

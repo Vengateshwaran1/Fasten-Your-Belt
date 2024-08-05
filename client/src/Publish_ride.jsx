@@ -20,25 +20,25 @@ const Publish_ride = () => {
     setTo(temp);
   };
 
-  const handleSubmit = async() => {
-    if (!name || !PhoneNumber || !carNumber || !carModel) {
-      setErrorMessage("Fill all the required field");
-      setShowError(true);
-      return;
-    }
-    try{
-      const data=await fetch('api/publishRide',{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({name,PhoneNumber,carNumber,carModel,dor,from,to})
-      })
-    }
-    catch(error){
-      setErrorMessage(error);
-      setShowError(true);
-      return;
-    }
-  };
+
+    const handleSubmit = async() => {
+      if (!name || !PhoneNumber || !carNumber || !carModel || !from || !to || !dor) {
+        setErrorMessage("Fill all the required field");
+        setShowError(true);
+        return;
+      }
+      try {
+        const data = await fetch('api/publishRide', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, PhoneNumber, carNumber, carModel, dor, from, to })
+        });
+      } catch (error) {
+        setErrorMessage(error);
+        setShowError(true);
+        return;
+      }
+    };
 
   return (
     <Layout>
@@ -56,7 +56,11 @@ const Publish_ride = () => {
                 className="bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-left text-white placeholder-white p-2 outline-none w-full focus:border focus:border-primary"
                 required
                 value={from}
-                onChange={(e) => setFrom(e.target.value)}
+                onChange={(e) =>{
+                  setFrom(e.target.value);
+                  setErrorMessage("");
+                  setShowError(false);
+                }}
               />
               <img
                 src={exchange}
@@ -70,23 +74,32 @@ const Publish_ride = () => {
                 className="bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-left text-white placeholder-white p-2 outline-none w-full focus:border focus:border-primary"
                 required
                 value={to}
-                onChange={(e) => setTo(e.target.value)}
+                onChange={(e) =>{
+                  setTo(e.target.value);
+                  setErrorMessage("");
+                  setShowError(false);
+                }}
               />
             </div>
           </div>
-          <div className="flex flex-row justify-center gap-2 mt-3">
+          <div className="flex flex-row justify-center md:ml-20 ml-0 mt-4 md:mt-0">
             <input
               type="text"
-              className="p-2 w-[40%] md:w-[25%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
-              placeholder="Date Of Ride"
+              className="text-white p-2 w-[75%] md:w-[35%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-l-2xl placeholder-white focus:border focus:border-primary"
+              placeholder=" Date Of Ride"
               required
               value={dor === null ? "" : dor}
+              onChange={(e) =>{
+                setDOB(e.target.value);
+                setErrorMessage("");
+                setShowError(false);
+              }}
             />
             <input
               type="date"
               name=""
               id=""
-              className="p-2 md:w-9 w-10 outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary text-transparent"
+              className="p-2 md:w-9 w-10 outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-r-2xl placeholder-white focus:border focus:border-primary text-transparent"
               onChange={(e) => setDOB(e.target.value)}
             />
           </div>

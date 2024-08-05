@@ -37,40 +37,40 @@ const Navbar = () => {
       <h1 className='w-full text-4xl font-bold text-primary'>Fasten Your Belt</h1>
       <ul className='hidden md:flex'>
         <li
-          className={`p-4 hover:text-primary hover:underline cursor-pointer ${
-            location.pathname === '/' ? 'text-primary underline' : ''
+          className={`p-4 hover:text-primary hover:underline cursor-pointer hover:bg-white rounded-lg hover:backdrop-blur-[2px] hover:bg-opacity-[20%] ${
+            location.pathname === '/' ? 'text-primary underline bg-white rounded-lg backdrop-blur-[2px] bg-opacity-[20%]' : ''
           }`}
           onClick={handleHomeClick}
         >
           Home
         </li>
         <li
-          className={`p-4 hover:text-primary hover:underline cursor-pointer ${
-            location.pathname === '/booking' ? 'text-primary underline' : ''
+          className={`p-4 hover:text-primary hover:underline cursor-pointer hover:bg-white rounded-lg hover:backdrop-blur-[2px] hover:bg-opacity-[20%] ${
+            location.pathname === '/booking' ? 'text-primary underline bg-white rounded-lg backdrop-blur-[2px] bg-opacity-[20%]' : ''
           }`}
           onClick={handleBookingClick}
         >
           Booking
         </li>
         <li
-          className={`p-4 hover:text-primary hover:underline cursor-pointer text-center ${
-            location.pathname === '/publish' || location.pathname === '/publish_ride' ? 'text-primary underline' : ''
+          className={`p-4 hover:text-primary hover:underline cursor-pointer hover:bg-white rounded-lg hover:backdrop-blur-[2px] hover:bg-opacity-[20%] ${
+            location.pathname === '/publish' || location.pathname === '/publish_ride' ? 'text-primary underline bg-white rounded-lg backdrop-blur-[2px] bg-opacity-[20%]' : ''
           }`}
           onClick={handlePublishClick}
         >
-          Publish ride
+          Publish_Ride
         </li>
         <li
-          className={`p-4 hover:text-primary hover:underline cursor-pointer text-center ${
-            location.pathname === '/about' ? 'text-primary underline' : ''
+          className={`p-4 hover:text-primary hover:underline cursor-pointer hover:bg-white rounded-lg hover:backdrop-blur-[2px] hover:bg-opacity-[20%] ${
+            location.pathname === '/about' ? 'text-primary underline bg-white rounded-lg backdrop-blur-[2px] bg-opacity-[20%]' : ''
           }`}
           onClick={handleAboutClick}
         >
           About
         </li>
         <li
-          className={`p-4 hover:text-primary hover:underline cursor-pointer text-center ${
-            location.pathname === '/login' || location.pathname==='/signup' ? 'text-primary underline' : ''
+          className={`p-4 hover:text-primary hover:underline cursor-pointer hover:bg-white rounded-lg hover:backdrop-blur-[2px] hover:bg-opacity-[20%] ${
+            location.pathname === '/login' || location.pathname==='/signup' ? 'text-primary underline bg-white rounded-lg backdrop-blur-[2px] bg-opacity-[20%]' : ''
           }`}
           onClick={handleLoginClick}
         >

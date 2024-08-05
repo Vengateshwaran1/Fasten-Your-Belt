@@ -28,10 +28,10 @@ const Publish = () => {
           <h1 className="text-2xl text-left p-4 font-bold"> <span className="text-primary"> Publish </span> <span className='text-white'>a</span> <span className="text-primary"> Ride </span> <span className='text-white'> in Just </span><span className="text-primary">Minutes</span></h1>
             {steps.map(step => 
               <div key={step.step} className="flex flex-col md:items-start">
-                <div className="w-8 h-8 inline-flex items-center justify-left text-white mb-2 font-bold">{step.step}.</div>
-                <div className="flex-grow">
-                  <h2 className="text-lg mb-3 text-primary font-bold">{step.title}</h2>
-                  <p className="leading-relaxed text-muted-foreground text-base text-white">{step.description}</p>
+                <div className="w-8 h-8 inline-flex items-center justify-left text-white font-extrabold">{step.step}.</div>
+                <div className="">
+                  <h2 className="text-lg mb-3 text-primary font-extrabold">{step.title}</h2>
+                  <p className="leading-relaxed text-muted-foreground text-base text-white font-bold">{step.description}</p>
                 </div>
               </div>
             )}

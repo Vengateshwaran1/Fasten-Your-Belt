@@ -1,6 +1,8 @@
 import { useState, useRef } from 'react';
 import Layout from './Components/Layout';
 import prof from '../src/assets/prof.png';
+import hide from '../src/assets/hide.png'
+import show from '../src/assets/show.png'
 
 const Profile = () => {
   const [showPasswordForm, setShowPasswordForm] = useState(false);
@@ -15,6 +17,21 @@ const Profile = () => {
   const [phone, setPhone] = useState('PHONE NO');
   const [isNameEditing, setIsNameEditing] = useState(false);
   const [isPhoneEditing, setIsPhoneEditing] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword1, setShowPassword1] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const togglePasswordVisibility1 = () => {
+    setShowPassword1(!showPassword1);
+  };
+
+  const togglePasswordVisibility2 = () => {
+    setShowPassword2(!showPassword2);
+  };
 
   const handleChangePassword = (e) => {
     e.preventDefault();
@@ -111,37 +128,61 @@ const Profile = () => {
           {showPasswordForm && (
             <form onSubmit={handleChangePassword} className="mt-4 space-y-4">
               <div>
-                <label htmlFor="currentPassword" className="block text-sm font-medium text-gray-300">Current Password</label>
+                <label htmlFor="currentPassword" className="block text-sm font-medium text-white">Current Password</label>
+                <div className="relative w-full">
                 <input
-                  type="password"
-                  id="currentPassword"
-                  value={currentPassword}
-                  onChange={(e) => setCurrentPassword(e.target.value)}
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  className="text-white p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
                   required
+                  onChange={(e) => {setCurrentPassword(e.target.value) }}
                 />
+                <button
+                  type="button"
+                  className="absolute top-1/2 right-4 transform -translate-y-1/2 focus:outline-none"
+                  onClick={togglePasswordVisibility}
+                >
+                  <img src={showPassword ? hide : show} alt="Toggle Password Visibility" className="w-6 h-6" />
+                </button>
+                </div>
               </div>
               <div>
-                <label htmlFor="newPassword" className="block text-sm font-medium text-gray-300">New Password</label>
+                <label htmlFor="newPassword" className="block text-sm font-medium text-white">New Password</label>
+                <div className="relative w-full">
                 <input
-                  type="password"
-                  id="newPassword"
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  type={showPassword1 ? "text" : "password"}
+                  placeholder="New Password"
+                  className="text-white p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
                   required
+                  onChange={(e) => {setNewPassword(e.target.value) }}
                 />
+                <button
+                  type="button"
+                  className="absolute top-1/2 right-4 transform -translate-y-1/2 focus:outline-none"
+                  onClick={togglePasswordVisibility1}
+                >
+                  <img src={showPassword1 ? hide : show} alt="Toggle Password Visibility" className="w-6 h-6" />
+                </button>
+                </div>
               </div>
               <div>
-                <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-300">Confirm New Password</label>
+                <label htmlFor="confirmPassword" className="block text-sm font-medium text-white">Confirm New Password</label>
+                <div className="relative w-full">
                 <input
-                  type="password"
-                  id="confirmPassword"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  type={showPassword2 ? "text" : "password"}
+                  placeholder="Confirm Password"
+                  className="text-white p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
                   required
+                  onChange={(e) => {setCurrentPassword(e.target.value) }}
                 />
+                <button
+                  type="button"
+                  className="absolute top-1/2 right-4 transform -translate-y-1/2 focus:outline-none"
+                  onClick={togglePasswordVisibility2}
+                >
+                  <img src={showPassword2 ? hide : show} alt="Toggle Password Visibility" className="w-6 h-6" />
+                </button>
+                </div>
               </div>
               <button
                 type="submit"

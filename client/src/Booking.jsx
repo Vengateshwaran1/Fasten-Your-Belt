@@ -60,13 +60,15 @@ const Booking = () => {
             />
             
           </div>
-            <div className='flex justify-center'>
-              <input type="text" className='text-white p-2 w-[35%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-l-2xl placeholder-white focus:border focus:border-primary '
-              placeholder='Date Of Ride'
-              required
-              value={dob===null?"":dob}/>
-              <input type="date" name="" id="" className='p-2 w-[10%] sm:w-[5.5%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-r-2xl placeholder-white focus:border focus:border-primary  text-transparent' onChange={(e)=>setDOB(e.target.value)}/>
-            </div>
+          <div className='flex w-full justify-center gap-0'>
+              <input type="text" className=' text-white p-2 w-[40%] md:w-[30%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-l-2xl placeholder-white focus:border focus:border-primary'
+                placeholder='Date Of Ride'
+                required
+                value={dob === null ? "" : dob}
+                onChange={(e) => setDOB(e.target.value)}
+              />
+              <input type="date" name="" id="" className='text-white p-2 w-9 outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-r-2xl placeholder-white focus:border focus:border-primary' onChange={(e) => setDOB(e.target.value)} />
+          </div>
             {showError &&
             <span className='font-bold text-red-500 justify-center flex'>
               {errorMessage}

@@ -3,6 +3,8 @@ import google from '../src/assets/googlel.svg';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Layout from './Components/Layout';
+import hide from '../src/assets/hide.png'
+import show from '../src/assets/show.png'
 
 const Signup = () => {
   const [dob, setDOB] = useState(null);
@@ -12,6 +14,10 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword1, setShowPassword1] = useState(false);
+
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -49,6 +55,15 @@ const Signup = () => {
     }
 };
 
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const togglePasswordVisibility1 = () => {
+    setShowPassword1(!showPassword1);
+  };
+
   return (
     <Layout>
     <div className="flex justify-center items-center">
@@ -78,20 +93,38 @@ const Signup = () => {
               required
               onChange={(e) => { setErrorMessage(""); setShowError(false); setEmail(e.target.value) }}
             />
-            <input
-              type="password"
-              placeholder="Password"
-              className="text-white p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
-              required
-              onChange={(e) => { setErrorMessage(""); setShowError(false); setPassword(e.target.value) }}
-            />
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              className="text-white p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
-              required
-              onChange={(e) => { setErrorMessage(""); setShowError(false); setConfirmPassword(e.target.value) }}
-            />
+            <div className="relative w-full">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                className="text-white p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
+                required
+                onChange={(e) => { setErrorMessage(""); setShowError(false); setPassword(e.target.value) }}
+              />
+              <button
+                type="button"
+                className="absolute top-1/2 right-4 transform -translate-y-1/2 focus:outline-none"
+                onClick={togglePasswordVisibility}
+              >
+                <img src={showPassword ? hide : show} alt="Toggle Password Visibility" className="w-6 h-6" />
+              </button>
+            </div>
+            <div className="relative w-full">
+              <input
+                type={showPassword1 ? "text" : "password"}
+                placeholder="Confirm Password"
+                className="text-white p-2 w-full outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl placeholder-white focus:border focus:border-primary"
+                required
+                onChange={(e) => { setErrorMessage(""); setShowError(false); setConfirmPassword(e.target.value) }}
+              />
+              <button
+                type="button"
+                className="absolute top-1/2 right-4 transform -translate-y-1/2 focus:outline-none"
+                onClick={togglePasswordVisibility1}
+              >
+                <img src={showPassword1 ? hide : show} alt="Toggle Password Visibility" className="w-6 h-6" />
+              </button>
+            </div>
             <input
               type="tel"
               placeholder=" Phone number"

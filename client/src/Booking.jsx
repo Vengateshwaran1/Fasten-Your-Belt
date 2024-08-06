@@ -61,7 +61,7 @@ const Booking = () => {
             
           </div>
           <div className='flex w-full justify-center gap-0'>
-              <input type="text" className=' text-white p-2 w-[40%] md:w-[30%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-l-2xl placeholder-white focus:border focus:border-primary'
+              <input type="text" className=' text-white p-2 w-[45%] md:w-[30%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-l-2xl placeholder-white focus:border focus:border-primary'
                 placeholder='Date Of Ride'
                 required
                 value={dob === null ? "" : dob}

@@ -23,8 +23,8 @@ const Publish = () => {
     ]
   return (
     <Layout>
-      <div className="w-full flex justify-center items-center mb-5 lg:mb-0">
-        <div className="relative z-10 bg-white backdrop-blur-[2px] bg-opacity-20 p-8 rounded-lg w-full max-w-md">
+      <div className="w-full flex justify-center items-center mb-3 lg:mb-0">
+        <div className="relative z-10 bg-white backdrop-blur-[2px] bg-opacity-20 p-4 md:p-8 rounded-lg w-full max-w-md">
           <h1 className="text-2xl text-left p-4 font-bold"> <span className="text-primary"> Publish </span> <span className='text-white'>a</span> <span className="text-primary"> Ride </span> <span className='text-white'> in Just </span><span className="text-primary">Minutes</span></h1>
             {steps.map(step => 
               <div key={step.step} className="flex flex-col md:items-start">

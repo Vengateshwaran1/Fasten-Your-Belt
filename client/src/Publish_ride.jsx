@@ -43,7 +43,7 @@ const Publish_ride = () => {
   return (
     <Layout>
       <div className="pub flex justify-center px-4 py-2 md:px-0 md:py-4">
-        <div className="relative z-10 w-[80%] max-w-3xl bg-white backdrop-blur-[2px] bg-opacity-20 rounded-lg p-2 md:p-8">
+        <div className="relative z-10 w-[80%] max-w-3xl bg-white backdrop-blur-[2px] bg-opacity-20 rounded-lg p-4 md:p-8">
           <h1 className="text-gray-300 font-bold text-2xl mb-4">Publish a ride</h1>
           <div className="flex flex-col-reverse md:flex-row justify-center items-center gap-4 md:gap-8">
             <div className="bg-gray-300 sm:w-full md:w-[20%] p-1 mt-2 rounded-lg">
@@ -82,26 +82,34 @@ const Publish_ride = () => {
               />
             </div>
           </div>
-          <div className="flex flex-row justify-center md:ml-20 ml-0 mt-4 md:mt-0">
-            <input
-              type="text"
-              className="text-white p-2 w-[75%] md:w-[35%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-l-2xl placeholder-white focus:border focus:border-primary"
-              placeholder=" Date Of Ride"
-              required
-              value={dor === null ? "" : dor}
-              onChange={(e) =>{
-                setDOB(e.target.value);
-                setErrorMessage("");
-                setShowError(false);
-              }}
-            />
-            <input
-              type="date"
-              name=""
-              id=""
-              className="p-2 md:w-9 w-10 outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-r-2xl placeholder-white focus:border focus:border-primary text-transparent"
-              onChange={(e) => setDOB(e.target.value)}
-            />
+          <div className="flex flex-row justify-center gap-2 mt-4 md:mt-0">
+            <div className="flex flex-row justify-center">
+              <input
+                type="text"
+                className="text-white p-2 w-[75%] md:w-[35%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-l-2xl placeholder-white focus:border focus:border-primary"
+                placeholder=" Date Of Ride"
+                required
+                value={dor === null ? "" : dor}
+                onChange={(e) =>{
+                  setDOB(e.target.value);
+                  setErrorMessage("");
+                  setShowError(false);
+                }}
+              />
+              <input
+                type="date"
+                name=""
+                id=""
+                className="p-2 md:w-9 w-10 outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-r-2xl placeholder-white focus:border focus:border-primary text-transparent"
+                onChange={(e) => setDOB(e.target.value)}
+              />
+            </div>
+            <div>
+              <input type="number" placeholder="Number of seat" className="bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-left text-white placeholder-white p-2 outline-none focus:border focus:border-primary"/>
+            </div>
+            <div>
+              <input type="time" placeholder="Time" className="bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-left text-white placeholder-white p-2 outline-none focus:border focus:border-primary"/>
+            </div>
           </div>
           <div className="flex flex-col p-4 md:p-8 gap-y-3 mt-2">
             <input

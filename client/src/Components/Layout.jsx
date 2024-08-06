@@ -1,14 +1,21 @@
 import Navbar from './Navbar';
-import backgroundImg from '../assets/bg.jpg';
+import backgroundVideo from '../assets/bgv2.mp4';
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   return (
-    <div
-      className="md:h-screen w-screen md:bg-cover md:bg-no-repeat md:bg-center"
-      style={{ backgroundImage: `url(${backgroundImg})` }}
-    >
-      <Navbar />
-      {children}
+    <div className="relative h-screen w-screen">
+      <video
+        autoPlay
+        loop
+        muted
+        className="h-full w-full object-cover"
+      >
+        <source src={backgroundVideo} type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-black/50">
+        <Navbar />
+        {children}
+      </div>
     </div>
   );
 };

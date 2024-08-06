@@ -67,7 +67,7 @@ const Signup = () => {
   return (
     <Layout>
     <div className="flex justify-center items-center">
-    <div className="relative z-10 bg-white backdrop-blur-[2px] bg-opacity-20 p-8 rounded-lg w-full max-w-md">
+    <div className="relative z-10 bg-white backdrop-blur-[2px] bg-opacity-20 p-4 md:p-8 rounded-lg w-full max-w-md">
       <h1 className='text-2xl sm:text-3xl font-bold text-primary text-center'>Signup</h1>
           <div className="flex flex-col items-center gap-y-4 mt-8 mb-4">
             <input
@@ -84,7 +84,7 @@ const Signup = () => {
                 value={dob === null ? "" : dob}
                 onChange={(e) => setDOB(e.target.value)}
               />
-              <input type="date" name="" id="" className='text-white p-2 md:w-9 w-10 outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-r-2xl placeholder-white focus:border focus:border-primary' onChange={(e) => setDOB(e.target.value)} />
+              <input type="date" name="" id="" className='text-white p-2 md:w-9 w-9 outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-r-2xl placeholder-white focus:border focus:border-primary' onChange={(e) => setDOB(e.target.value)} />
             </div>
             <input
               type="email"

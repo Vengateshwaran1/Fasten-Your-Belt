@@ -82,11 +82,11 @@ const Publish_ride = () => {
               />
             </div>
           </div>
-          <div className="flex flex-row justify-center gap-2 mt-4 md:mt-0">
+          <div className="flex flex-row justify-center gap-2 mt-4 ">
             <div className="flex flex-row justify-center">
               <input
                 type="text"
-                className="text-white p-2 w-[75%] md:w-[35%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-l-2xl placeholder-white focus:border focus:border-primary"
+                className="text-white p-2 w-[55%] md:w-[50%] outline-none bg-white backdrop-blur-[3px] bg-opacity-30 rounded-l-2xl placeholder-white focus:border focus:border-primary"
                 placeholder=" Date Of Ride"
                 required
                 value={dor === null ? "" : dor}
@@ -105,9 +105,9 @@ const Publish_ride = () => {
               />
             </div>
             <div>
-              <input type="number" placeholder="Number of seat" className="bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-left text-white placeholder-white p-2 outline-none focus:border focus:border-primary"/>
+              <input type="number" placeholder="seats" className="w-20 bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-left text-white placeholder-white p-2 outline-none focus:border focus:border-primary"/>
             </div>
-            <div>
+            <div className="w-50">
               <input type="time" placeholder="Time" className="bg-white backdrop-blur-[3px] bg-opacity-30 rounded-2xl text-left text-white placeholder-white p-2 outline-none focus:border focus:border-primary"/>
             </div>
           </div>

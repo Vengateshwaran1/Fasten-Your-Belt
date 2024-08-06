@@ -4,7 +4,7 @@ import backgroundImg from '../assets/bg.jpg';
 const Layout = ({children}) => {
   return (
     <div
-      className="h-screen w-screen bg-cover bg-no-repeat bg-center"
+      className="md:h-screen w-screen md:bg-cover md:bg-no-repeat md:bg-center"
       style={{ backgroundImage: `url(${backgroundImg})` }}
     >
       <Navbar />

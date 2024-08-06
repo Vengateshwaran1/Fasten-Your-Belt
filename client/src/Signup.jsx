@@ -165,7 +165,7 @@ const Signup = () => {
             </button>
           </div>
           <div>
-            <span className='flex py-4 justify-center'>
+            <span className='flex py-2 justify-center'>
               Have an account? <button className='text-primary px-2 hover:underline'
                 onClick={
                   (e) => { e.preventDefault(); navigate("/login") }}>

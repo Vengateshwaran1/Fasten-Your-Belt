@@ -2,7 +2,7 @@ const {customer}=require('../models/users.model.js');
 const OTP=require('../models/otp.model');
 
 exports.login=async(req,res)=>{
-    console.log(req.body);
+    console.log(req.body.email);
     const {email,password,otp}=await req.body;
     try{
      //otp checking   
@@ -18,10 +18,25 @@ exports.login=async(req,res)=>{
         const user=await customer.findOne({email:req.body.email});
         if(user){
             if(req.body.password===user.password){
+                try{
+                await customer.updateOne({email:req.body.email},
+                    {
+                        $set:{
+                            isLogin:true
+                        }
+                    }
+                );
                 return res.status(200).json({
                     success:true,
                     message:'Logged in successfully'
                 });
+            }
+            catch(error){
+                return res.status(501).json({
+                    success:false,
+                    message:error
+                });
+            }
             }      
             else{
                 return res.status(500).json({

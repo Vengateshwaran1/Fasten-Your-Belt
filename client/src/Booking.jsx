@@ -15,11 +15,30 @@ const Booking = () => {
     setFrom(to);
     setTo(temp);
   };
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
     if (!to || !from || !dob) {
       setErrorMessage("Fill all the required fields");
       setShowError(true);
-    } 
+    }
+    else{
+      try{
+      const response=await fetch('/api/search',{
+        method:'POST',
+        headers:{'Content-type':'application/json'},
+        body:JSON.stringify({from,to}),
+      });
+      const rides=response.json();
+      if(rides.success!=false){
+        console.log(rides);
+      }
+      else{
+        console.log(rides.message);
+      }
+    }
+    catch(error){
+      console.log(error);
+    }
+    }
   };
 
   return (

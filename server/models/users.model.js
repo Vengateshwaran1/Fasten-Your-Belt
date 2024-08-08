@@ -22,6 +22,10 @@ const userDetails=new mongoose.Schema(
         email:{
             type:String,
             required:[true]
+        },
+        isLogin:{
+            type:Boolean,
+            default:false
         }
     },
     {

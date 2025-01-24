@@ -11,8 +11,8 @@ exports.searchRide=async(req,res)=>{
         const avai_rides=await ride.aggregate(
             [{
             $match:
-            {from:from_location,
-            to:to_location
+            {from:{ $regex: `^\\s*${from_location}\\s*$`, $options: 'i' },
+            to:{ $regex: `^\\s*${to_location}\\s*$`, $options: 'i' }
             }
         }
          ]).exec();
@@ -30,7 +30,7 @@ exports.searchRide=async(req,res)=>{
         console.log(error);
         return res.status(500).json({
             success:false,
-            message:JSON.stringify(error)
+            message:"Some server error"
         });
     }
 };

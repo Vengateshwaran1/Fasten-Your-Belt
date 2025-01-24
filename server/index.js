@@ -1,44 +1,47 @@
-const express =require('express');
-const mongoose=require('mongoose');
-const {customer}=require('./models/users.model.js');
-const authRoutes=require('./routes/authRoutes');
-const otpRoutes=require('./routes/otpRoutes.js');
-const loginRoute=require('./routes/loginroutes.js');
-const rideRoute=require('./routes/rideRoute.js');
-const searchRoute=require('./routes/searchRoutes')
-const cors=require('cors');
+const express = require('express');
+const mongoose = require('mongoose');
+require('dotenv').config(); // Correctly require and configure dotenv
+const { customer } = require('./models/users.model.js');
+const authRoutes = require('./routes/authRoutes');
+const otpRoutes = require('./routes/otpRoutes.js');
+const loginRoute = require('./routes/loginroutes.js');
+const rideRoute = require('./routes/rideRoute.js');
+const searchRoute = require('./routes/searchRoutes');
+const cors = require('cors');
 
-const app=express()
+const app = express();
 
-app.use(express.json()); //a middleware for sending json
+const PORT = process.env.PORT; // Ensure PORT is defined in your .env file
+
+app.use(express.json()); // Middleware for sending JSON
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
     res.send("Server for fasten your belt");
 });
 
+// CORS configuration
 app.use(cors({
     origin: ['http://localhost:5173'], // Allow requests from React client
     credentials: true,
- }));
+}));
 
+// Route handlers
 app.use('/api', authRoutes);
 app.use('/api', otpRoutes);
-app.use('/api',loginRoute);
-app.use('/api',rideRoute);
-app.use('/api',searchRoute);
-
-mongoose.connect("mongodb+srv://vad:carPool101@carpool.qy9xda4.mongodb.net/cp?retryWrites=true&w=majority&appName=Carpool")
-.then(()=>{
-    app.listen(3000,() =>{
-        console.log("Server is running on port 3000")
+app.use('/api', loginRoute);
+app.use('/api', rideRoute);
+app.use('/api', searchRoute);
+console.log('Environment Variables:', process.env);
+// MongoDB connection
+console.log('MONGODB_URI:', process.env.MONGODB_URI); // Add this line to debug
+mongoose.connect(process.env.MONGODB_URI)
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
+        });
+        console.log("Connected to MongoDB");
+    })
+    .catch((err) => {
+        console.error("Some error occurred", err); // Log the error for debugging
     });
-    console.log("Connected to mongoDB");
-})
-.catch(()=>{
-    console.log("Some error occured")
-});
-
-
-
-

@@ -42,6 +42,7 @@ const Signup = () => {
     const data = await response.json();
     if (data.success) {
       //a message box that says logged in good
+      
         navigate("/")
       } else {
         setErrorMessage(data.message);

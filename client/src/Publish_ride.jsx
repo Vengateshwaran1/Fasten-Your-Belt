@@ -42,7 +42,7 @@ const Publish_ride = () => {
 
   return (
     <Layout>
-      <div className="pub flex justify-center px-4 py-2 md:px-0 md:py-4">
+      <div className="flex justify-center px-4 py-2 md:px-0 md:py-4">
         <div className="relative z-10 w-[80%] max-w-3xl bg-white backdrop-blur-[2px] bg-opacity-20 rounded-lg p-4 md:p-8">
           <h1 className="text-gray-300 font-bold text-2xl mb-4">Publish a ride</h1>
           <div className="flex flex-col-reverse md:flex-row justify-center items-center gap-4 md:gap-8">

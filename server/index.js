@@ -8,6 +8,8 @@ const loginRoute = require('./routes/loginroutes.js');
 const rideRoute = require('./routes/rideRoute.js');
 const searchRoute = require('./routes/searchRoutes');
 const cors = require('cors');
+const colors = require('colors');
+colors.enable();
 
 const app = express();
 
@@ -35,14 +37,13 @@ app.use('/api', rideRoute);
 app.use('/api', searchRoute);
 //console.log('Environment Variables:', process.env);
 // MongoDB connection
-console.log('MONGODB_URI:',process.env.MONGODB ); // Add this line to debug
 
 mongoose.connect(process.env.MONGODB)
     .then(() => {
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
         });
-        console.log("Connected to MongoDB");
+        console.log("Connected to MongoDB", colors.rainbow('🌈'));
     })
     .catch((err) => {
         console.error("Some error occurred", err); // Log the error for debugging
